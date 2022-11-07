@@ -1,0 +1,25 @@
+<header>
+    <a href="#" class="logo">
+        <fa-icon [icon]="icons['faKiwiBird']"></fa-icon>
+        <span>Okiwi</span>
+    </a>
+
+    <ul class="navbar">
+        <ul>
+            <li><span (click)="navigate('')">Home</span></li>
+            <li><span (click)="navigate('/candidates/view')">Vagas</span></li>
+            <li><span (click)="navigate('/candidates')">Candidatos</span></li>                
+        </ul>
+    </ul>
+
+    <div class="main">
+        <span class="user">
+            <fa-icon [icon]="icons['faUser']"></fa-icon>
+            Sign In
+        </span>
+        <span>Register</span>
+        <div id="menu-icon">
+            <fa-icon [icon]="icons['faBars']"></fa-icon>
+        </div>
+    </div>
+</header>
