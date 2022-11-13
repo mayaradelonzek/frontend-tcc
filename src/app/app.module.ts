@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,6 +9,10 @@ import { CandidateComponent } from './candidate/candidate.component';
 import { CandidateModule } from './candidate/candidate.module';
 import { HomeComponent } from './home/home.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MaterialModule } from './material.module'
 
 
 @NgModule({
@@ -25,7 +28,12 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserAnimationsModule,
     FontAwesomeModule,
     CandidateModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,    
+    MatNativeDateModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,3 +2,87 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.pl-pr { padding-left: 1rem; padding-right: 1rem; }
+.my-col-1   { @extend .pl-pr; flex: 0 0 1%;   max-width: 1%;  }
+.my-col-2   { @extend .pl-pr; flex: 0 0 2%;   max-width: 2%;  }
+.my-col-3   { @extend .pl-pr; flex: 0 0 3%;   max-width: 3%;  }
+.my-col-4   { @extend .pl-pr; flex: 0 0 4%;   max-width: 4%;  }
+.my-col-5   { @extend .pl-pr; flex: 0 0 5%;   max-width: 5%;  }
+.my-col-6   { @extend .pl-pr; flex: 0 0 6%;   max-width: 6%;  }
+.my-col-7   { @extend .pl-pr; flex: 0 0 7%;   max-width: 7%;  }
+.my-col-8   { @extend .pl-pr; flex: 0 0 8%;   max-width: 8%;  }
+.my-col-9   { @extend .pl-pr; flex: 0 0 9%;   max-width: 9%;  }
+.my-col-10  { @extend .pl-pr; flex: 0 0 10%;  max-width: 10%; }
+.my-col-11  { @extend .pl-pr; flex: 0 0 11%;  max-width: 11%; }
+.my-col-12  { @extend .pl-pr; flex: 0 0 12%;  max-width: 12%; }
+.my-col-13  { @extend .pl-pr; flex: 0 0 13%;  max-width: 13%; }
+.my-col-14  { @extend .pl-pr; flex: 0 0 14%;  max-width: 14%; }
+.my-col-15  { @extend .pl-pr; flex: 0 0 15%;  max-width: 15%; }
+.my-col-16  { @extend .pl-pr; flex: 0 0 16%;  max-width: 16%; }
+.my-col-17  { @extend .pl-pr; flex: 0 0 17%;  max-width: 17%; }
+.my-col-18  { @extend .pl-pr; flex: 0 0 18%;  max-width: 18%; }
+.my-col-19  { @extend .pl-pr; flex: 0 0 19%;  max-width: 19%; }
+.my-col-20  { @extend .pl-pr; flex: 0 0 20%;  max-width: 20%; }
+.my-col-22  { @extend .pl-pr; flex: 0 0 22%;  max-width: 22%; }
+.my-col-24  { @extend .pl-pr; flex: 0 0 24%;  max-width: 24%; }
+.my-col-25  { @extend .pl-pr; flex: 0 0 25%;  max-width: 25%; }
+.my-col-26  { @extend .pl-pr; flex: 0 0 26%;  max-width: 26%; }
+.my-col-28  { @extend .pl-pr; flex: 0 0 28%;  max-width: 28%; }
+.my-col-30  { @extend .pl-pr; flex: 0 0 30%;  max-width: 30%; }
+.my-col-32  { @extend .pl-pr; flex: 0 0 32%;  max-width: 32%; }
+.my-col-34  { @extend .pl-pr; flex: 0 0 34%;  max-width: 34%; }
+.my-col-35  { @extend .pl-pr; flex: 0 0 35%;  max-width: 35%; }
+.my-col-36  { @extend .pl-pr; flex: 0 0 36%;  max-width: 36%; }
+.my-col-38  { @extend .pl-pr; flex: 0 0 38%;  max-width: 38%; }
+.my-col-40  { @extend .pl-pr; flex: 0 0 40%;  max-width: 40%; }
+.my-col-42  { @extend .pl-pr; flex: 0 0 42%;  max-width: 42%; }
+.my-col-44  { @extend .pl-pr; flex: 0 0 44%;  max-width: 44%; }
+.my-col-45  { @extend .pl-pr; flex: 0 0 45%;  max-width: 45%; }
+.my-col-46  { @extend .pl-pr; flex: 0 0 46%;  max-width: 46%; }
+.my-col-48  { @extend .pl-pr; flex: 0 0 48%;  max-width: 48%; }
+.my-col-50  { @extend .pl-pr; flex: 0 0 50%;  max-width: 50%; }
+.my-col-52  { @extend .pl-pr; flex: 0 0 52%;  max-width: 52%; }
+.my-col-54  { @extend .pl-pr; flex: 0 0 54%;  max-width: 54%; }
+.my-col-55  { @extend .pl-pr; flex: 0 0 55%;  max-width: 55%; }
+.my-col-56  { @extend .pl-pr; flex: 0 0 56%;  max-width: 56%; }
+.my-col-58  { @extend .pl-pr; flex: 0 0 58%;  max-width: 58%; }
+.my-col-60  { @extend .pl-pr; flex: 0 0 60%;  max-width: 60%; }
+.my-col-62  { @extend .pl-pr; flex: 0 0 62%;  max-width: 62%; }
+.my-col-64  { @extend .pl-pr; flex: 0 0 64%;  max-width: 64%; }
+.my-col-65  { @extend .pl-pr; flex: 0 0 65%;  max-width: 65%; }
+.my-col-66  { @extend .pl-pr; flex: 0 0 66%;  max-width: 66%; }
+.my-col-68  { @extend .pl-pr; flex: 0 0 68%;  max-width: 68%; }
+.my-col-70  { @extend .pl-pr; flex: 0 0 70%;  max-width: 70%; }
+.my-col-72  { @extend .pl-pr; flex: 0 0 72%;  max-width: 72%; }
+.my-col-74  { @extend .pl-pr; flex: 0 0 74%;  max-width: 74%; }
+.my-col-75  { @extend .pl-pr; flex: 0 0 75%;  max-width: 75%; }
+.my-col-76  { @extend .pl-pr; flex: 0 0 76%;  max-width: 76%; }
+.my-col-78  { @extend .pl-pr; flex: 0 0 78%;  max-width: 78%; }
+.my-col-80  { @extend .pl-pr; flex: 0 0 80%;  max-width: 80%; }
+.my-col-82  { @extend .pl-pr; flex: 0 0 82%;  max-width: 82%; }
+.my-col-84  { @extend .pl-pr; flex: 0 0 84%;  max-width: 84%; }
+.my-col-85  { @extend .pl-pr; flex: 0 0 85%;  max-width: 85%; }
+.my-col-86  { @extend .pl-pr; flex: 0 0 86%;  max-width: 86%; }
+.my-col-88  { @extend .pl-pr; flex: 0 0 88%;  max-width: 88%; }
+.my-col-90  { @extend .pl-pr; flex: 0 0 90%;  max-width: 90%; }
+.my-col-92  { @extend .pl-pr; flex: 0 0 92%;  max-width: 92%; }
+.my-col-94  { @extend .pl-pr; flex: 0 0 94%;  max-width: 94%; }
+.my-col-95  { @extend .pl-pr; flex: 0 0 95%;  max-width: 95%; }
+.my-col-96  { @extend .pl-pr; flex: 0 0 96%;  max-width: 96%; }
+.my-col-98  { @extend .pl-pr; flex: 0 0 98%;  max-width: 98%; }
+.my-col-100 { @extend .pl-pr; flex: 0 0 100%; max-width: 100%; }
+
+.col-1  { @extend .pl-pr; }
+.col-2  { @extend .pl-pr; }
+.col-3  { @extend .pl-pr; }
+.col-4  { @extend .pl-pr; }
+.col-5  { @extend .pl-pr; }
+.col-6  { @extend .pl-pr; }
+.col-7  { @extend .pl-pr; }
+.col-8  { @extend .pl-pr; }
+.col-9  { @extend .pl-pr; }
+.col-10 { @extend .pl-pr; }
+.col-11 { @extend .pl-pr; }
+.col-12 { @extend .pl-pr; }

@@ -1,12 +1,88 @@
+$main-color: #29fd53;
+$text-color: #fff;
+$bg-color: #f6f8f8;
 
-.container {
-    background-color: #1b1b1b;    
-    min-height: 500px;    
+// mat-icon-stepper selected color change 
+::ng-deep .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+    background-color: #29fd53!important;
 }
 
-.body {    
-    margin: 0 12%;
+//input outline color
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #29fd53!important;
+    background-color: white;
+    border-radius: 5px;
+}
+
+//mat-input focused color
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #29fd53!important;
+}
+
+// mat-input error outline color
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+    color: red!important;
+    opacity: 0.8!important;
+}
+
+// mat-label normal state style
+::ng-deep .mat-form-field-label {
+    color: rgba(0,0,0,.6)!important;    
+}
+
+
+.container {
+    background-color: $bg-color;
+    min-height: 500px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.body {
+    background-color: $bg-color;
+    margin: 0 15%;
     padding-top: 5em;
     display: flex;
-    justify-content: end;   
+    justify-content: center;
+    flex-direction: column;
+}
+
+.resume {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon-btn {
+    padding: 0;
+    height: 52px;
+    margin-top: 3.5px;
+    background-color: #ffffff;
+    border: 1px solid #29fd53;
+}
+
+.pdf {
+    padding: 0;    
+}
+
+.send-btn {
+    width: 100% !important;
+    height: 50px;
+    color: $text-color;
+    font-size: 18px;
+    background-color: #29fd53;
+    border: 1px solid #26e44c;
+}
+
+.title {    
+    font-size: 30px;
+    line-height: 38px;
+    text-align: center;    
+}
+
+.sec-title {
+    text-align: center;
+}
+
+.teste {
+    border: 1px solid #26e44c;
 }

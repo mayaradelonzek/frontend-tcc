@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { CandidateRoutingModule } from './candidate-routing.module';
 import { CandidateViewComponent } from './candidate-view/candidate-view.component';
 import { CandidateCreateComponent } from './candidate-create/candidate-create.component';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from '../material.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,11 @@ import { CandidateCreateComponent } from './candidate-create/candidate-create.co
   ],
   imports: [
     CommonModule,
-    CandidateRoutingModule
+    CandidateRoutingModule,    
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    FontAwesomeModule
   ]
 })
 export class CandidateModule { }

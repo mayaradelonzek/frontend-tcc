@@ -1,6 +1,74 @@
 <div class="container">
     <div class="body">
-        <p>teste</p>
+        <div class="row mb-3">
+            <span class="title">Cadastro Simplificado</span>
+            <h3 class="sec-title">- Okiwi -</h3>
+            <!-- <span class="underline pl-pr"></span> -->
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline" class="pl-pr">
+                <mat-label>Nome</mat-label>
+                <input matInput placeholder="Mayara Delonzek" [formControl]="name" required>
+                <mat-icon matSuffix>person</mat-icon>
+                <mat-error *ngIf="name.invalid">{{getNameErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline" class="col-6">
+                <mat-label>E-mail</mat-label>
+                <input matInput placeholder="mayara@gmail.com" [formControl]="email" required>
+                <mat-icon matSuffix>mail</mat-icon> 
+                <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="col-6">
+                <mat-label>Confirmar E-mail</mat-label>
+                <input matInput placeholder="mayara@gmail.com" [formControl]="emailConfirmation" required>
+                <mat-icon matSuffix>mark_email_read</mat-icon> 
+                <mat-error *ngIf="emailConfirmation.invalid">{{getEmailConfirmationErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline" class="col-6">
+                <mat-label>Celular</mat-label>
+                <input matInput placeholder="(99) 99999-9999" [formControl]="name"
+                    mask="(00) 0000-0000 || (00) 0 0000-0000" required>
+                <mat-icon matSuffix>phone</mat-icon>                
+                <mat-error *ngIf="name.invalid">{{getNameErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="col-6">
+                <mat-label>CPF</mat-label>
+                <input autocomplete="off" matInput [formControl]="cpf" maxlength="14" minlength="14">
+                <mat-icon matSuffix>badge</mat-icon>
+            </mat-form-field>
+        </div>
+
+        <div class="row" >
+            <mat-form-field appearance="outline" class="col-6">
+                <mat-label>LinkedIn</mat-label>
+                <input matInput placeholder="www.linkedin.com/in/usuario" [formControl]="linkedin" required type="url">
+                <mat-icon matSuffix>link</mat-icon>
+                <mat-error *ngIf="emailConfirmation.invalid">{{getEmailConfirmationErrorMessage()}}</mat-error>
+            </mat-form-field>
+            <div class="resume col-6">
+                <mat-form-field appearance="outline" class="pdf col-10">
+                    <input matInput placeholder="Currículo (PDF)">
+                </mat-form-field>
+                <button mat-button matSuffix mat-stroked-button class="icon-btn col-2">
+                    <fa-icon [icon]="icons['faPaperClip']"></fa-icon>
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="pl-pr">
+                <button mat-stroked-button color="primary" class="send-btn">Enviar</button>
+            </div>
+        </div>
+
     </div>
 </div>
-
