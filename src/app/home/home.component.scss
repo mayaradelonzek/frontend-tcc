@@ -1,7 +1,17 @@
+$main-color: #54a015;
+$text-color: #08b8a0;
+$bg-color: #f1f1f1;
+$hover-color: #0093ce;
+$brown: #5f453c;
+$light-brown: #b89a61;
+$green: #61ab5a;
+$light-green: #a9c77e;
+$bg: #f2ecae;
 
-.container {
-    background-color: #1b1b1b;    
+.teste {
+    background-color: $bg-color;    
     min-height: 500px;
+    width: 100%;
 }
 
 .body {    
@@ -9,4 +19,13 @@
     padding-top: 6em;
     display: flex;
     justify-content: end;   
+}
+
+.send-btn {
+    width: 100% !important;
+    height: 50px;
+    color: $bg-color;
+    font-size: 18px;
+    background-color: $green;
+    border: 1px solid $light-brown;
 }

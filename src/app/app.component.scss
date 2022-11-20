@@ -1,5 +1,6 @@
+$bg-color: #f1f1f1;
+
 .body{
 	min-height: 100vh;
-	background: var(--bg-color);
-	color: var(--text-color);
+	background: $bg-color;	
 }

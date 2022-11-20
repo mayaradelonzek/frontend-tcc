@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { CandidateService } from 'src/app/service/candidate.service';
 import { icons } from '../../helper/icons'
+import { Candidate } from '../model/candidate.model';
 
 
 @Component({
@@ -15,12 +17,36 @@ export class CandidateCreateComponent implements OnInit {
   emailConfirmation = new FormControl('', [Validators.required, Validators.email]);
   cpf = new FormControl('', [Validators.required]);
   linkedin = new FormControl('', [Validators.required]);
+  phone = new FormControl('', [Validators.required]);
+  candidateModel: Candidate = new Candidate();
 
   icons = icons;
 
-  constructor() { }
+  constructor(
+    private candidateService: CandidateService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  save() {
+    this.buildCandidate();
+    this.candidateService.create(this.candidateModel).subscribe(response => {
+      this.candidateModel = response;      
+      console.log('Candidato salvo com sucesso.');
+      console.log(response)
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  private buildCandidate() {
+    this.candidateModel.cpf = this.cpf.value;
+    this.candidateModel.name = this.name.value;
+    this.candidateModel.phone = this.phone.value;
+    this.candidateModel.email = this.email.value;
+    this.emailConfirmation === this.email ? this.email : '';
+    this.candidateModel.linkedin = this.linkedin.value;
   }
 
   getNameErrorMessage() {
@@ -51,7 +77,7 @@ export class CandidateCreateComponent implements OnInit {
     return this.cpf.hasError('required') ? 'CPF inválido' : '';
   }
 
-  getLinkedinErrorMessage() {    
+  getLinkedinErrorMessage() {
 
     return this.linkedin.hasError('required') ? 'É obrigatório informar o LinkedIn' : "";
   }

@@ -6,9 +6,15 @@
 	list-style: none;
 }
 
-$main-color: #29fd53;
-$text-color: #fff;
-$bg-color: #1b1b1b;
+$main-color: #54a015;
+$text-color: #08b8a0;
+$bg-color: #f1f1f1;
+$hover-color: #0093ce;
+$brown: #5f453c;
+$light-brown: #b89a61;
+$green: #61ab5a;
+$light-green: #a9c77e;
+$bg: #f2ecae;
 
 header{
 	position: fixed;
@@ -19,9 +25,8 @@ header{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background: #1b1b1b;
-	padding: 16px 12%;
-	
+	background: $bg-color;
+	padding: 16px 12%;	
 }
 
 .logo{
@@ -30,14 +35,14 @@ header{
 }
 
 .logo fa-icon{
-	color: $main-color;	
+	color: $green;	
 	font-size: 28px;
 	margin-right: 8px;
 }
 
 .logo span{
     display: flex;
-	color: $text-color;
+	color: $light-brown;
 	font-size: 1.7rem;
 	font-weight: 600;
     align-items: center;
@@ -45,16 +50,15 @@ header{
 }
 
 .logo fa-icon:hover{
-    color: $text-color;	
+    color: $light-green;	
 }
-
 
 .navbar{
 	display: flex;
 }
 
 .navbar span{
-	color: $text-color;
+	color: $brown;
 	font-size: 1.1rem;
 	font-weight: 500;
 	padding: 5px 0;
@@ -71,17 +75,17 @@ header{
 
 .navbar ul li::after {
     content: '';
-    height: 2px;
-    width: 0;
-    background: $main-color;
+    border-bottom: 2px solid $light-green;
+    width: 0;    
     position: absolute;    
     left: 0;
     bottom: -10px;
-    transition: 0.5s;    
-}
+    transition: 0.5s;	
+}	
 
 .navbar ul li:hover::after {    
-    width: 100%;     
+    width: 80%;
+	margin-left: 15px;
 }
 
 .main{
@@ -90,7 +94,7 @@ header{
 }
 
 .main span{	
-	color: $text-color;
+	color: $light-brown;
 	font-size: 1.1rem;
 	font-weight: 500;	
 }
@@ -105,13 +109,13 @@ header{
 }
 
 .user fa-icon{
-	color: $main-color;
+	color: $green;
 	font-size: 18px;
 	margin-right: 10px;
 }
 
 .main span:hover{
-	color: $main-color;
+	color: $green;
 }
 
 #menu-icon{
@@ -120,18 +124,4 @@ header{
 	cursor: pointer;
 	z-index: 10001;
 	display: none;
-}
-
-// #teste{  animation: 10s bgrandom infinite; }
-
-
-@keyframes bgrandom {
-    0% { background: linear-gradient(90deg, rgba(0, 255, 200, 0.98) 50%, rgba(0, 255, 200, 0.98) 0%); }
-    50% { background: linear-gradient(90deg, rgba(252, 247, 0, 0.98) 50%, rgba(252, 247, 0, 0.98) 0%); }
-
-    55% { background: linear-gradient(90deg,  rgba(35, 250, 6, 0.98) 50%, rgba(35, 250, 6, 0.98) 0%); }
-    80% { background: linear-gradient(90deg, rgba(247, 4, 194, 0.96)  50%, rgba(247, 4, 194, 0.96) 0%); }
-
-    85% { background: linear-gradient(90deg, rgba(139, 49, 255, 0.94) 50%, rgba(139, 49, 255, 0.94) 0%); }
-    100% { background: linear-gradient(90deg, rgba(255, 182, 26, 0.96) 50%, rgba(255, 182, 26, 0.96) 0%); }
 }

@@ -34,10 +34,10 @@
         <div class="row">
             <mat-form-field appearance="outline" class="col-6">
                 <mat-label>Celular</mat-label>
-                <input matInput placeholder="(99) 99999-9999" [formControl]="name"
+                <input matInput placeholder="(99) 99999-9999" [formControl]="phone"
                     mask="(00) 0000-0000 || (00) 0 0000-0000" required>
                 <mat-icon matSuffix>phone</mat-icon>                
-                <mat-error *ngIf="name.invalid">{{getNameErrorMessage()}}</mat-error>
+                <!-- <mat-error *ngIf="phone.invalid">{{getPhoneErrorMessage()}}</mat-error> -->
             </mat-form-field>
 
             <mat-form-field appearance="outline" class="col-6">
@@ -52,7 +52,7 @@
                 <mat-label>LinkedIn</mat-label>
                 <input matInput placeholder="www.linkedin.com/in/usuario" [formControl]="linkedin" required type="url">
                 <mat-icon matSuffix>link</mat-icon>
-                <mat-error *ngIf="emailConfirmation.invalid">{{getEmailConfirmationErrorMessage()}}</mat-error>
+                <!-- <mat-error *ngIf="emailConfirmation.invalid">{{getEmailConfirmationErrorMessage()}}</mat-error> -->
             </mat-form-field>
             <div class="resume col-6">
                 <mat-form-field appearance="outline" class="pdf col-10">
@@ -66,7 +66,7 @@
 
         <div class="row">
             <div class="pl-pr">
-                <button mat-stroked-button color="primary" class="send-btn">Enviar</button>
+                <button (click)="save()" mat-stroked-button color="primary" class="send-btn">Enviar</button>
             </div>
         </div>
 
