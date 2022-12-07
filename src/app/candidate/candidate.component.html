@@ -1,4 +1,30 @@
-<div>
-    <h3>/CANDIDATE</h3>
+<div class="bg-container">
+    <div class="body row">
+        <div class="col-12">
+            <div *ngFor="let candidate of getCandidates()" class="candidates-border">
+                <mat-accordion>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title class="accordion-grid">
+                                <span>Nome: {{candidate.name}}</span>                            
+                                <span>E-mail: {{candidate.email}}</span>                            
+                                <span>LinkedIn: {{candidate.linkedin}}</span>                                
+                                <!-- <span>Celular: {{candidate.phone}}</span>-->
+                            </mat-panel-title>
+                            <mat-panel-description>
+        
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <p>Teste</p>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
     <router-outlet></router-outlet>
 </div>

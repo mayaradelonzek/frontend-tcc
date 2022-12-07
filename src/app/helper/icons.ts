@@ -4,5 +4,6 @@ export const icons = {
     faUser: faUser,
     faBars: faBars,
     faKiwiBird: faKiwiBird,
-    faPaperClip: faPaperclip
+    faPaperClip: faPaperclip    
+    
 }

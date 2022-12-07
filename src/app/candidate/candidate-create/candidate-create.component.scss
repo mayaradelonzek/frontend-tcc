@@ -37,9 +37,9 @@ $bg: #f2ecae;
 }
 
 
-.container {
+.bg-container {
     background-color: $bg-color;
-    min-height: 500px;
+    min-height: 100vh;
     width: 100%;
     max-width: 100%;
 }

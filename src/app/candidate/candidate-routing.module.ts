@@ -5,12 +5,9 @@ import { CandidateViewComponent } from './candidate-view/candidate-view.componen
 import { CandidateComponent } from './candidate.component';
 
 const routes: Routes = [
-  {
-    path: '', component: CandidateComponent, children: [
-      { path: 'view', component: CandidateViewComponent },
-      { path: 'create', component: CandidateCreateComponent },
-    ]
-  }
+  { path: '', component: CandidateComponent },
+  { path: 'view', component: CandidateViewComponent },
+  { path: 'create', component: CandidateCreateComponent }  
 ];
 
 @NgModule({

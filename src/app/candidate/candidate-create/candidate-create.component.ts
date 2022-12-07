@@ -30,6 +30,8 @@ export class CandidateCreateComponent implements OnInit {
   }
 
   save() {
+    // if (!this.isValid()) return;
+
     this.buildCandidate();
     this.candidateService.create(this.candidateModel).subscribe(response => {
       this.candidateModel = response;      
@@ -38,6 +40,18 @@ export class CandidateCreateComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+  }
+
+  private isValid(): boolean {
+    if (this.getNameErrorMessage() ||
+      this.getEmailErrorMessage() ||
+      this.getEmailConfirmationErrorMessage() ||
+      this.getCpfErrorMessage() ||
+      this.getLinkedinErrorMessage()) {
+        return false;
+      }
+
+      return true;
   }
 
   private buildCandidate() {
@@ -49,11 +63,11 @@ export class CandidateCreateComponent implements OnInit {
     this.candidateModel.linkedin = this.linkedin.value;
   }
 
-  getNameErrorMessage() {
+  getNameErrorMessage(): string {
     return this.name.hasError('required') ? 'É obrigatório informar um nome' : "";
   }
 
-  getEmailErrorMessage() {
+  getEmailErrorMessage(): string {
     if (this.email.hasError('required')) {
       return 'O e-mail é obrigatório';
     }
@@ -61,7 +75,7 @@ export class CandidateCreateComponent implements OnInit {
     return this.email.hasError('email') ? 'E-mail inválido' : '';
   }
 
-  getEmailConfirmationErrorMessage() {
+  getEmailConfirmationErrorMessage(): string {
     if (this.emailConfirmation.hasError('required')) {
       return 'A confirmação do e-mail é obrigatória';
     }
@@ -69,7 +83,7 @@ export class CandidateCreateComponent implements OnInit {
     return this.emailConfirmation !== this.email ? 'Os e-mails devem ser iguais' : '';
   }
 
-  getCpfErrorMessage() {
+  getCpfErrorMessage(): string {
     if (this.cpf.hasError('required')) {
       return 'O CPF é obrigatório';
     }
@@ -77,7 +91,7 @@ export class CandidateCreateComponent implements OnInit {
     return this.cpf.hasError('required') ? 'CPF inválido' : '';
   }
 
-  getLinkedinErrorMessage() {
+  getLinkedinErrorMessage(): string {
 
     return this.linkedin.hasError('required') ? 'É obrigatório informar o LinkedIn' : "";
   }

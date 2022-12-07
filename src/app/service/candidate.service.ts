@@ -13,8 +13,8 @@ export class CandidateService {
     private http: HttpClient,
   ) {}
 
-  findAll(params: any): any {
-    return this.http.get(BASE_URL, params);
+  findAll(): any {
+    return this.http.get(BASE_URL);
   }
 
   create(candidate: Candidate): any {

@@ -8,9 +8,9 @@ $green: #61ab5a;
 $light-green: #a9c77e;
 $bg: #f2ecae;
 
-.teste {
+.bg-container {
     background-color: $bg-color;    
-    min-height: 500px;
+    min-height: 100vh;
     width: 100%;
 }
 
@@ -18,7 +18,8 @@ $bg: #f2ecae;
     margin: 0 12%;
     padding-top: 6em;
     display: flex;
-    justify-content: end;   
+    flex-direction: column;
+    // justify-content: end;   
 }
 
 .send-btn {
@@ -28,4 +29,23 @@ $bg: #f2ecae;
     font-size: 18px;
     background-color: $green;
     border: 1px solid $light-brown;
+}
+
+.banner { 
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: 266px;
+    overflow: hidden;
+    margin-top: 60px;
+    background-color: $bg-color;
+    border-bottom: solid 5px $bg-color;
+    border-top: solid 5px $bg-color;     
+}
+
+.banner > img {
+    display: flex;
+    align-items: center;
+    border: dashed 1.5px $bg-color;
 }

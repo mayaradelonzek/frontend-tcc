@@ -5,7 +5,5 @@ export class Candidate {
     email: string;
     linkedin: string;
     phone: string;
-    resume: string;
-    createDate: Date;
-    updateDate: Date;
+    resume: string;    
 }
