@@ -16,14 +16,14 @@ $bg: #f2ecae;
 
 .body {    
     margin: 0 12%;
-    padding-top: 6em;
+    padding-top: 2em;
     display: flex;
     flex-direction: column;
     // justify-content: end;   
 }
 
 .send-btn {
-    width: 100% !important;
+    width: 80% !important;
     height: 50px;
     color: $bg-color;
     font-size: 18px;
@@ -48,4 +48,46 @@ $bg: #f2ecae;
     display: flex;
     align-items: center;
     border: dashed 1.5px $bg-color;
+}
+
+.form-btn {
+    display: flex;
+    justify-content: right;
+    text-align: right;
+    margin-bottom: 20px;    
+}
+
+.vacancies {
+    display: flex;     
+    height: 200px;
+    // background-color: #53a0151c;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.vacancy-card {
+    display: flex;
+    flex-direction: row;
+    width: 230px;
+    height: 150px;
+    border: solid 1px $main-color;
+    border-radius: 5px;
+    margin: 10px;    
+}
+
+.vacancy-btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    // margin-top: 30px;    
+}
+
+.view-vacancies {
+    width: 100% !important;
+    height: 50px;
+    color: $bg-color;
+    font-size: 18px;
+    background-color: $light-brown;
+    border: 1px solid $brown;
 }

@@ -1,8 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { CustomValidators } from 'src/app/components/validator/CustomValidators';
 import { CandidateService } from 'src/app/service/candidate.service';
+import { CompetenceService } from 'src/app/service/competence.service';
 import { icons } from '../../helper/icons'
 import { Candidate } from '../model/candidate.model';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+
 
 
 @Component({
@@ -16,21 +22,34 @@ export class CandidateCreateComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   emailConfirmation = new FormControl('', [Validators.required, Validators.email]);
   cpf = new FormControl('', [Validators.required]);
-  linkedin = new FormControl('', [Validators.required]);
+  linkedin = new FormControl('', [Validators.required, CustomValidators.validUrl]);
   phone = new FormControl('', [Validators.required]);
+
+  //competence
+  competenceInputCtrl = new FormControl('', [Validators.required]);
+  competencesCtrl = new FormControl([], [Validators.required]);
+  @ViewChild('competenceInput') competenceInput: ElementRef<HTMLInputElement>;
+  separatorKeysCodes: number[] = [ENTER, COMMA];
+
+  comps;
+
   candidateModel: Candidate = new Candidate();
 
   icons = icons;
 
   constructor(
-    private candidateService: CandidateService
+    private candidateService: CandidateService,
+    private competenceService: CompetenceService
   ) { }
 
   ngOnInit(): void {
+    this.competenceService.findAll().subscribe(res => {
+      this.comps = res;
+    });
   }
 
   save() {
-    // if (!this.isValid()) return;
+    if (!this.isFormValid()) return;
 
     this.buildCandidate();
     this.candidateService.create(this.candidateModel).subscribe(response => {
@@ -42,18 +61,6 @@ export class CandidateCreateComponent implements OnInit {
     });
   }
 
-  private isValid(): boolean {
-    if (this.getNameErrorMessage() ||
-      this.getEmailErrorMessage() ||
-      this.getEmailConfirmationErrorMessage() ||
-      this.getCpfErrorMessage() ||
-      this.getLinkedinErrorMessage()) {
-        return false;
-      }
-
-      return true;
-  }
-
   private buildCandidate() {
     this.candidateModel.cpf = this.cpf.value;
     this.candidateModel.name = this.name.value;
@@ -61,6 +68,21 @@ export class CandidateCreateComponent implements OnInit {
     this.candidateModel.email = this.email.value;
     this.emailConfirmation === this.email ? this.email : '';
     this.candidateModel.linkedin = this.linkedin.value;
+  }
+
+  isFormValid(): boolean {
+    return this.name.valid &&
+      this.email.valid &&
+      this.emailConfirmation.valid &&
+      this.cpf.valid &&
+      this.linkedin.valid &&
+      this.phone.valid &&
+      // this.competences.valid &&
+      this.isEmailConfirmationValid();
+  }
+
+  isEmailConfirmationValid() {
+    return this.emailConfirmation.value === this.email.value
   }
 
   getNameErrorMessage(): string {
@@ -95,5 +117,47 @@ export class CandidateCreateComponent implements OnInit {
 
     return this.linkedin.hasError('required') ? 'É obrigatório informar o LinkedIn' : "";
   }
+
+
+
+
+
+
+  // competences
+
+
+  add(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
+
+    // Add our fruit
+    if (value) {
+      this.insertSelectedFruit(value);
+    }
+
+    // Clear the input value
+    event.chipInput!.clear();
+
+    this.competenceInputCtrl.setValue(null);
+  }
+
+  insertSelectedFruit(value) {
+    const selectedCompetences = this.competencesCtrl.value ? this.competencesCtrl.value : [];
+      selectedCompetences.push(value);
+      this.competencesCtrl.setValue(selectedCompetences);
+  }
+
+  selected(event: MatAutocompleteSelectedEvent): void {
+    this.insertSelectedFruit(event.option.viewValue);
+    this.competenceInput.nativeElement.value = '';
+    this.competenceInputCtrl.setValue(null);
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.comps.filter(fruit => fruit.toLowerCase().includes(filterValue));
+  }
+
+
 
 }

@@ -64,6 +64,24 @@
             </div>
         </div>
 
+        <mat-form-field class="example-chip-list" appearance="fill">
+            <mat-label>Favorite Fruits</mat-label>
+            <mat-chip-grid #chipGrid aria-label="Fruit selection">
+              <mat-chip-row *ngFor="let fruit of comps">
+                {{fruit.name}}
+              </mat-chip-row>
+            </mat-chip-grid>
+            <input placeholder="New Fruit..." #fruitInput [formControl]="competenceInputCtrl"
+              [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="add($event)"/>
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+              <mat-option *ngFor="let fruit of competencesCtrl.value | async" [value]="fruit.id">
+                {{fruit.name}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
         <div class="row">
             <div class="pl-pr">
                 <button (click)="save()" mat-stroked-button color="primary" class="send-btn">Enviar</button>

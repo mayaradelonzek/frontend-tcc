@@ -28,16 +28,29 @@
         <img src="../../assets/banner/23.png" alt="">
         <img src="../../assets/banner/24.png" alt="">
     </div>
-    <div class="body">        
-        <div>
+    
+    <div class="row form-btn">
+        <div class="col-3">
             <button (click)="create()" mat-stroked-button color="primary" class="send-btn">Cadastro
                 Simplificado</button>
         </div>
+    </div>
 
-        <div class="vacancies">
-            <div></div>
-            <div></div>
-            <div></div>
+    <div class="body">      
+
+        <div class="row vacancies">
+            <div class="col-3 vacancy-card">Vaga Destaque 1</div>
+            <div class="col-3 vacancy-card">Vaga Destaque 2</div>
+            <div class="col-3 vacancy-card">Vaga Destaque 3</div>
+        </div>
+
+        <div class="row vacancy-btn">
+            <div class="col-9">
+                <button (click)="create()" mat-stroked-button color="primary" class="view-vacancies">
+                    Ver todas as Vagas
+                    <mat-icon>chevron_right</mat-icon>
+                  </button>                
+            </div>
         </div>
     </div>
 </div>
