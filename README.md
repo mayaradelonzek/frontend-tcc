@@ -1,6 +1,19 @@
 # TCC do curso técnico em informática da Fundatec
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.3
+
+![image](https://user-images.githubusercontent.com/78550661/207160718-7586d70a-95f4-476d-a549-2733fe3a5833.png)
+
+**Tenha instalado**
+
+- node -v (v18.10.0)
+- ng version (15.0.3)
+
+Instalar o ng: `npm install -g @angular/cli@15.0.3`
+
+Criar o node_modules: `npm install`
+
+Subir local: `ng serve`
 
 ## Development server
 
