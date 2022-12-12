@@ -6,6 +6,7 @@ import { CandidateCreateComponent } from './candidate-create/candidate-create.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgxMatFileInputModule
   ]
 })
 export class CandidateModule { }

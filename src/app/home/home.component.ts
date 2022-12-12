@@ -16,4 +16,8 @@ export class HomeComponent {
     this.router.navigate(['/candidates/create']);
   }
 
+  viewVacancies() {
+    this.router.navigate(['/vacancies']);
+  }
+
 }

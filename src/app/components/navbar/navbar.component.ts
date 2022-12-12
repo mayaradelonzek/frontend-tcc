@@ -22,14 +22,6 @@ export class NavbarComponent implements OnInit {
   navigate(to: string) {
     console.log(to)
     this.router.navigate([to]);
-  }
-
-  // private routerSelectedMenu() {
-  //   this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
-  //     if(event.url)
-  //       this.isHome = this.location.isCurrentPathEqualTo('/home');
-  //       this.selectedMenu = event.url.includes('home') || this.isHome ? 'Início' : this.selectedMenu;
-        
-  //   });
+  }  
 
 }

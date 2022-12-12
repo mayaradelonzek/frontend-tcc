@@ -2,37 +2,36 @@
     <div class="body">
         <div class="row mb-3">
             <span class="title">Cadastro Simplificado</span>
-            <h3 class="sec-title">- Okiwi -</h3>
-            <!-- <span class="underline pl-pr"></span> -->
+            <h3 class="sec-title">- Okiwi -</h3>            
         </div>
 
         <div class="row">
-            <mat-form-field appearance="outline" class="pl-pr">
+            <mat-form-field appearance="outline" color="accent" color="accent" class="pl-pr">
                 <mat-label>Nome</mat-label>
-                <input matInput placeholder="Mayara Delonzek" [formControl]="name" required>
+                <input matInput placeholder="Informe seu nome completo" [formControl]="name" required>
                 <mat-icon matSuffix>person</mat-icon>
                 <mat-error *ngIf="name.invalid">{{getNameErrorMessage()}}</mat-error>
             </mat-form-field>
         </div>
 
         <div class="row">
-            <mat-form-field appearance="outline" class="col-6">
+            <mat-form-field appearance="outline" color="accent" class="col-6">
                 <mat-label>E-mail</mat-label>
-                <input matInput placeholder="mayara@gmail.com" [formControl]="email" required>
+                <input matInput placeholder="Informe seu e-mail" [formControl]="email" required>
                 <mat-icon matSuffix>mail</mat-icon> 
                 <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
             </mat-form-field>
 
-            <mat-form-field appearance="outline" class="col-6">
+            <mat-form-field appearance="outline" color="accent" class="col-6">
                 <mat-label>Confirmar E-mail</mat-label>
-                <input matInput placeholder="mayara@gmail.com" [formControl]="emailConfirmation" required>
+                <input matInput placeholder="Informe seu e-mail" [formControl]="emailConfirmation" required>
                 <mat-icon matSuffix>mark_email_read</mat-icon> 
                 <mat-error *ngIf="emailConfirmation.invalid">{{getEmailConfirmationErrorMessage()}}</mat-error>
             </mat-form-field>
         </div>
 
         <div class="row">
-            <mat-form-field appearance="outline" class="col-6">
+            <mat-form-field appearance="outline" color="accent" class="col-6">
                 <mat-label>Celular</mat-label>
                 <input matInput placeholder="(99) 99999-9999" [formControl]="phone"
                     mask="(00) 0000-0000 || (00) 0 0000-0000" required>
@@ -40,7 +39,7 @@
                 <!-- <mat-error *ngIf="phone.invalid">{{getPhoneErrorMessage()}}</mat-error> -->
             </mat-form-field>
 
-            <mat-form-field appearance="outline" class="col-6">
+            <mat-form-field appearance="outline" color="accent" class="col-6">
                 <mat-label>CPF</mat-label>
                 <input autocomplete="off" matInput [formControl]="cpf" maxlength="14" minlength="14">
                 <mat-icon matSuffix>badge</mat-icon>
@@ -48,43 +47,45 @@
         </div>
 
         <div class="row" >
-            <mat-form-field appearance="outline" class="col-6">
+            <mat-form-field appearance="outline" color="accent" class="col-6">
                 <mat-label>LinkedIn</mat-label>
                 <input matInput placeholder="www.linkedin.com/in/usuario" [formControl]="linkedin" required type="url">
-                <mat-icon matSuffix>link</mat-icon>
-                <!-- <mat-error *ngIf="emailConfirmation.invalid">{{getEmailConfirmationErrorMessage()}}</mat-error> -->
+                <mat-icon matSuffix>link</mat-icon>                
             </mat-form-field>
-            <div class="resume col-6">
-                <mat-form-field appearance="outline" class="pdf col-10">
-                    <input matInput placeholder="Currículo (PDF)">
-                </mat-form-field>
-                <button mat-button matSuffix mat-stroked-button class="icon-btn col-2">
-                    <fa-icon [icon]="icons['faPaperClip']"></fa-icon>
-                </button>
-            </div>
+            
+            <mat-form-field appearance="outline" color="accent" class="col-6" onclick="this.value =null">
+                <mat-label>{{selectedFile}}</mat-label>
+                <ngx-mat-file-input #testete class="pdf-field no-padding userResumeForm" placeholder="Currículo (PDF)" [formControl]="resumeControl" [accept]="'.pdf'" [color]="color">                    
+                </ngx-mat-file-input>
+            </mat-form-field>
+            
         </div>
 
-        <mat-form-field class="example-chip-list" appearance="fill">
-            <mat-label>Favorite Fruits</mat-label>
-            <mat-chip-grid #chipGrid aria-label="Fruit selection">
-              <mat-chip-row *ngFor="let fruit of comps">
-                {{fruit.name}}
+        <mat-form-field class="example-chip-list" appearance="outline" color="accent">
+            <mat-label>Competências</mat-label>
+            <mat-chip-grid #chipGrid aria-label="Competence selection">
+              <mat-chip-row *ngFor="let competence of competences" (removed)="remove(competence)">
+                {{competence.name}}
+                <button matChipRemove [attr.aria-label]="'remove ' + competence">
+                  <mat-icon>cancel</mat-icon>
+                </button>
               </mat-chip-row>
             </mat-chip-grid>
-            <input placeholder="New Fruit..." #fruitInput [formControl]="competenceInputCtrl"
+            <input #competenceInput [formControl]="competenceCtrl"
               [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
               (matChipInputTokenEnd)="add($event)"/>
             <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-              <mat-option *ngFor="let fruit of competencesCtrl.value | async" [value]="fruit.id">
-                {{fruit.name}}
+              <mat-option *ngFor="let competence of filteredCompetences | async" [value]="competence.name">
+                {{competence.name}}
               </mat-option>
             </mat-autocomplete>
+            <mat-icon matSuffix>list_alt</mat-icon>
           </mat-form-field>
 
         <div class="row">
             <div class="pl-pr">
-                <button (click)="save()" mat-stroked-button color="primary" class="send-btn">Enviar</button>
+                <button (click)="save()" mat-stroked-button class="send-btn">Enviar</button>
             </div>
         </div>
 

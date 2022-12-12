@@ -1,3 +1,5 @@
+import { Competence } from "./competence.model";
+
 export class Candidate {
     id: number;
     name: string;
@@ -5,5 +7,5 @@ export class Candidate {
     email: string;
     linkedin: string;
     phone: string;
-    resume: string;    
+    competences: Competence[];
 }

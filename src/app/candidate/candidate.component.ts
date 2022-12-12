@@ -34,5 +34,5 @@ export class CandidateComponent implements OnInit {
 
   getCandidates() {
     return this.candidate;
-  }
+  }  
 }

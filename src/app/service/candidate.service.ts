@@ -17,8 +17,12 @@ export class CandidateService {
     return this.http.get(BASE_URL);
   }
 
-  create(candidate: Candidate): any {
-    return this.http.post(BASE_URL, candidate);
+  create(candidate: Candidate, resume): any {
+    const formData = new FormData();
+    formData.append("candidate", new Blob([JSON.stringify( candidate )], {type: "application/json"}));
+    formData.append("resume", resume)
+
+    return this.http.post(BASE_URL, formData);
   }  
 
 }

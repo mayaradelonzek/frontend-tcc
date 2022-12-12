@@ -1,3 +1,11 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;	
+	text-decoration: none;
+	list-style: none;
+}
+
 $main-color: #54a015;
 $text-color: #08b8a0;
 $bg-color: #f1f1f1;
@@ -10,8 +18,7 @@ $bg: #f2ecae;
 
 .bg-container {
     background-color: $bg-color;    
-    min-height: 100vh;
-    width: 100%;
+    min-height: 100vh;    
 }
 
 .body {    
@@ -19,13 +26,12 @@ $bg: #f2ecae;
     padding-top: 2em;
     display: flex;
     flex-direction: column;
-    // justify-content: end;   
 }
 
 .send-btn {
     width: 80% !important;
     height: 50px;
-    color: $bg-color;
+    color: $bg-color !important;
     font-size: 18px;
     background-color: $green;
     border: 1px solid $light-brown;
@@ -54,7 +60,9 @@ $bg: #f2ecae;
     display: flex;
     justify-content: right;
     text-align: right;
-    margin-bottom: 20px;    
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-right: 8px;    
 }
 
 .vacancies {
@@ -80,14 +88,18 @@ $bg: #f2ecae;
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
-    // margin-top: 30px;    
+    padding: 0;       
 }
 
 .view-vacancies {
     width: 100% !important;
     height: 50px;
-    color: $bg-color;
+    color: $bg-color !important;
     font-size: 18px;
     background-color: $light-brown;
     border: 1px solid $brown;
+}
+
+.no-padding {
+    padding: 0;
 }

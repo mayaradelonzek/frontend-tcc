@@ -1,73 +1,103 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { MatChipInputEvent } from '@angular/material/chips';
-import { CustomValidators } from 'src/app/components/validator/CustomValidators';
 import { CandidateService } from 'src/app/service/candidate.service';
 import { CompetenceService } from 'src/app/service/competence.service';
 import { icons } from '../../helper/icons'
 import { Candidate } from '../model/candidate.model';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
-
-
+import { MatChipInputEvent } from '@angular/material/chips';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import {map, startWith} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { ThemePalette } from '@angular/material/core';
+import { Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-candidate-create',
   templateUrl: './candidate-create.component.html',
   styleUrls: ['./candidate-create.component.scss']
 })
-export class CandidateCreateComponent implements OnInit {
+export class CandidateCreateComponent implements OnInit, AfterViewInit {
 
+  accept: string = ".pdf";
+  color: ThemePalette = 'accent';
   name = new FormControl('', [Validators.required]);
-  email = new FormControl('', [Validators.required, Validators.email]);
-  emailConfirmation = new FormControl('', [Validators.required, Validators.email]);
+  email = new FormControl('', [Validators.required]); // Validators.email
+  emailConfirmation = new FormControl('', [Validators.required]); //Validators.email
   cpf = new FormControl('', [Validators.required]);
-  linkedin = new FormControl('', [Validators.required, CustomValidators.validUrl]);
+  linkedin = new FormControl('', [Validators.required]); // CustomValidators.validUrl
   phone = new FormControl('', [Validators.required]);
+  resumeControl = new FormControl('', [Validators.required]);
+
+  resume;
+  
 
   //competence
-  competenceInputCtrl = new FormControl('', [Validators.required]);
-  competencesCtrl = new FormControl([], [Validators.required]);
   @ViewChild('competenceInput') competenceInput: ElementRef<HTMLInputElement>;
   separatorKeysCodes: number[] = [ENTER, COMMA];
+  allCompetences: any[] = [];
+  competences: any[] = [];
+  filteredCompetences = new Observable<any>;
+  competenceCtrl = new FormControl('');
 
-  comps;
+  selectedFile: string = 'Currículo';
 
   candidateModel: Candidate = new Candidate();
+
+  @ViewChild('testete') inputCapiroto;
 
   icons = icons;
 
   constructor(
     private candidateService: CandidateService,
-    private competenceService: CompetenceService
+    private competenceService: CompetenceService,
+    private renderer:Renderer2
   ) { }
 
   ngOnInit(): void {
     this.competenceService.findAll().subscribe(res => {
-      this.comps = res;
+      this.allCompetences = res;
+
+      this.filteredCompetences = this.competenceCtrl.valueChanges.pipe(
+        startWith(null),
+        map((competence: any | null) => (competence ? this._filter(competence) : this.allCompetences.slice())),
+      );
     });
+
+    this.resumeControl.valueChanges.subscribe((file: any) => {
+      console.log(file)
+      this.resume = file;
+      this.selectedFile = file.name;
+    })
+  }
+
+  ngAfterViewInit() {
+    this.renderer.setStyle(
+      this.inputCapiroto['_elementRef'].nativeElement.children[0], 'visibility', 'hidden');
   }
 
   save() {
-    if (!this.isFormValid()) return;
+    // if (!this.isFormValid()) return;
 
     this.buildCandidate();
-    this.candidateService.create(this.candidateModel).subscribe(response => {
-      this.candidateModel = response;      
+    this.candidateService.create(this.candidateModel, this.resume).subscribe(response => {
+      this.candidateModel = response;
+      alert('Candidato salvo com sucesso')      
       console.log('Candidato salvo com sucesso.');
       console.log(response)
     }, error => {
+      alert(error.error.errors[0])
       console.log(error);
     });
   }
 
   private buildCandidate() {
-    this.candidateModel.cpf = this.cpf.value;
     this.candidateModel.name = this.name.value;
-    this.candidateModel.phone = this.phone.value;
     this.candidateModel.email = this.email.value;
-    this.emailConfirmation === this.email ? this.email : '';
+    this.candidateModel.phone = this.phone.value;
+    this.candidateModel.cpf = this.cpf.value;
     this.candidateModel.linkedin = this.linkedin.value;
+    this.candidateModel.competences = this.competences;
   }
 
   isFormValid(): boolean {
@@ -119,8 +149,10 @@ export class CandidateCreateComponent implements OnInit {
   }
 
 
-
-
+  pdfInputChange(event) {
+    this.renderer.setStyle(
+      this.inputCapiroto['_elementRef'].nativeElement.children[0], 'innerHTML', 'teste2');
+  }
 
 
   // competences
@@ -129,35 +161,42 @@ export class CandidateCreateComponent implements OnInit {
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
 
-    // Add our fruit
+    // Add our competence
     if (value) {
-      this.insertSelectedFruit(value);
+      this.competences.push(value);
     }
 
     // Clear the input value
     event.chipInput!.clear();
 
-    this.competenceInputCtrl.setValue(null);
+    this.competenceCtrl.setValue(null);
   }
 
-  insertSelectedFruit(value) {
-    const selectedCompetences = this.competencesCtrl.value ? this.competencesCtrl.value : [];
-      selectedCompetences.push(value);
-      this.competencesCtrl.setValue(selectedCompetences);
+  remove(competence: string): void {
+    const index = this.competences.indexOf(competence);
+
+    if (index >= 0) {
+      this.competences.splice(index, 1);
+    }
+  }
+
+  getCompetenceByName(competenceName) {
+    console.log(competenceName)
+    console.log(this.allCompetences)
+    return this.allCompetences.find(c => competenceName === c.name)
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.insertSelectedFruit(event.option.viewValue);
+    const comeptence = this.getCompetenceByName(event.option.viewValue);
+    this.competences.push(comeptence);
     this.competenceInput.nativeElement.value = '';
-    this.competenceInputCtrl.setValue(null);
+    this.competenceCtrl.setValue(null);
   }
 
-  private _filter(value: string): string[] {
+  private _filter(value: any): any[] {
     const filterValue = value.toLowerCase();
 
-    return this.comps.filter(fruit => fruit.toLowerCase().includes(filterValue));
+    return this.allCompetences.filter(competence => competence.name.toLowerCase().includes(filterValue));
   }
-
-
 
 }

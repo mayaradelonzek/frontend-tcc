@@ -8,35 +8,6 @@ $green: #61ab5a;
 $light-green: #a9c77e;
 $bg: #f2ecae;
 
-// mat-icon-stepper selected color change 
-::ng-deep .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
-    background-color: $green!important;
-}
-
-//input outline color
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
-    color: $light-brown!important;
-    background-color: white;
-    border-radius: 5px;
-}
-
-//mat-input focused color
-::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
-    color: $light-brown!important;
-}
-
-// mat-input error outline color
-::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
-    color: rgb(228, 37, 37)!important;
-    opacity: 0.8!important;
-}
-
-// mat-label normal state style
-::ng-deep .mat-form-field-label {
-    color: rgb(82, 82, 82)!important;    
-}
-
-
 .bg-container {
     background-color: $bg-color;
     min-height: 100vh;
@@ -53,11 +24,6 @@ $bg: #f2ecae;
     flex-direction: column;
 }
 
-.resume {
-    display: flex;
-    justify-content: space-between;
-}
-
 .icon-btn {
     padding: 0;
     height: 52px;
@@ -66,17 +32,18 @@ $bg: #f2ecae;
     border: 1px solid $light-brown;
 }
 
-.pdf {
-    padding: 0;    
+.pdf-field {
+    justify-content: right;
+    padding-right: 8px;
 }
 
 .send-btn {
     width: 100% !important;
-    height: 50px;
-    color: $bg-color;
+    height: 50px;    
     font-size: 18px;
     background-color: $green;
     border: 1px solid $light-brown;
+    color: $bg-color !important;    
 }
 
 .title {    
@@ -87,4 +54,8 @@ $bg: #f2ecae;
 
 .sec-title {
     text-align: center;
+}
+
+.no-padding {
+    padding: 0;
 }

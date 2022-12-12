@@ -8,12 +8,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CandidateComponent } from './candidate/candidate.component';
 import { CandidateModule } from './candidate/candidate.module';
 import { HomeComponent } from './home/home.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MaterialModule } from './material.module'
 import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { VacancyComponent } from './vacancy/vacancy.component';
+import { VacancyModule } from './vacancy/vacancy.module';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     NavbarComponent,
     CandidateComponent,
-    HomeComponent
+    HomeComponent,
+    VacancyComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     FontAwesomeModule,
     CandidateModule,
+    VacancyModule,
     MatButtonModule,
     MatFormFieldModule,
     FormsModule,
