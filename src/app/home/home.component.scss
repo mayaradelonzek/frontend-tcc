@@ -50,10 +50,35 @@ $bg: #f2ecae;
     border-top: solid 5px $bg-color;     
 }
 
+.card-header-padding {
+    padding: 16px 16px 0 16px; 
+}
+
+.card-content-padding {
+    padding: 0 16px 0 16px; 
+}
+
 .banner > img {
     display: flex;
     align-items: center;
     border: dashed 1.5px $bg-color;
+}
+
+.vacancy-card {
+    max-width: 400px;
+    background-color: #53a01546;
+    border-radius: 10px;
+    margin: 5px;
+    border: solid 1px $light-brown;        
+}
+
+.competences {
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.competence {
+    margin-right: 8px;    
 }
 
 .form-btn {
@@ -62,26 +87,16 @@ $bg: #f2ecae;
     text-align: right;
     margin-bottom: 20px;
     margin-top: 20px;
-    padding-right: 8px;    
+    padding-right: 8px;
 }
 
 .vacancies {
     display: flex;     
-    height: 200px;
-    // background-color: #53a0151c;
+    height: fit-content;    
     border-radius: 20px;
     align-items: center;
     justify-content: center;
-}
-
-.vacancy-card {
-    display: flex;
-    flex-direction: row;
-    width: 230px;
-    height: 150px;
-    border: solid 1px $main-color;
-    border-radius: 5px;
-    margin: 10px;    
+    margin-bottom: 30px;    
 }
 
 .vacancy-btn {
@@ -102,4 +117,25 @@ $bg: #f2ecae;
 
 .no-padding {
     padding: 0;
+}
+
+.detail-btn {    
+    border: dashed 1px #53a01541;
+    min-width: 206px;
+    border-radius: 0 0 10px 10px;    
+}
+
+.detail-btn:hover {
+    color: $brown;
+}
+
+.vc-detail {
+    display: flex;
+    justify-content: center;
+    background-color: $light-green;
+    border-radius: 0 0 10px 10px;       
+}
+
+.title {
+    padding-left: 130px;
 }

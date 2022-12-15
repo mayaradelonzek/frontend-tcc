@@ -20,8 +20,7 @@ export class NavbarComponent implements OnInit {
   }
 
   navigate(to: string) {
-    console.log(to)
     this.router.navigate([to]);
-  }  
+  }
 
 }

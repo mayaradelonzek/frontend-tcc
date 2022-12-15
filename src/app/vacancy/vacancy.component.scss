@@ -1,0 +1,97 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+$main-color: #54a015;
+$text-color: #08b8a0;
+$bg-color: #f1f1f1;
+$hover-color: #0093ce;
+$brown: #5f453c;
+$light-brown: #b89a61;
+$green: #61ab5a;
+$light-green: #a9c77e;
+$bg: #f2ecae;
+
+.bg-container {
+    background-color: $bg-color;
+    min-height: 100vh;
+}
+
+.body {
+    margin: 0 12%;
+    padding-top: 2em;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+}
+
+.v-detail-btn {
+    border: dashed 1px #53a01541;
+    min-width: 206px;
+    border-radius: 0 0 10px 10px;
+}
+
+.v-detail-btn:hover {
+    color: $brown;
+}
+
+.v-vc-detail {
+    display: flex;
+    justify-content: center;
+    background-color: $light-green;
+    border-radius: 0 0 10px 10px;
+}
+
+.v-vacancies {
+    display: flex;
+    height: fit-content;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-direction: row;
+}
+
+.v-vacancy-card {
+    max-width: 400px;
+    background-color: #53a01546;
+    border-radius: 10px;
+    border: solid 1px $light-brown;
+}
+
+.v-competences {
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.card-header-padding {
+    padding: 16px 16px 0 16px; 
+}
+
+.card-content-padding {
+    padding: 0 16px 0 16px; 
+}
+
+.v-competence {
+    margin-right: 8px;
+}
+
+.v-vacancies-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 15px;
+    row-gap: 15px;
+    padding: 0 15px;    
+}
+
+#paginator {
+    background-color: $bg-color;
+}
+
+.title {
+    padding-left: 15px;
+}

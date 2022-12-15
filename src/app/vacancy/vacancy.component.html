@@ -1,1 +1,33 @@
-<p>vacancy works!</p>
+<div class="bg-container">
+    <div class="body">
+        <h1 class="title">Vagas</h1>
+
+        <div *ngIf="vacancies.length > 0" class="row v-vacancies v-vacancies-grid">
+            <div *ngFor="let vacancy of vacancies" class=" ">
+                <mat-card class="v-vacancy-card">
+                    <mat-card-header class="card-header-padding">
+                        <mat-card-title>{{vacancy.name}}</mat-card-title>
+                        <mat-card-subtitle>{{vacancy.level}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content class="card-content-padding">
+                        <p>R$ {{vacancy.salary}}</p>
+                        <div *ngFor="let competence of vacancy.competences" class="v-competences">
+                            <p class="v-competence">{{competence.name}}</p>
+                        </div>
+                    </mat-card-content>
+                    <mat-card-actions class="v-vc-detail">
+                        <button mat-button class="v-detail-btn">Ver detalhes</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+        
+        <mat-paginator id="paginator"
+            [length]="length"
+            [pageIndex]="pageIndex"
+            [pageSize]="pageSize"
+            [pageSizeOptions]="[4, 8, 16, 96]"
+            (page)="getVacancyPage($event)"
+        ></mat-paginator>
+    </div>
+</div>

@@ -1,13 +1,21 @@
 <div class="bg-container">
     <div class="body row">
+        <h1 class="title">Candidatos</h1>
+
         <div class="col-12">
+            <div class="title-grid">
+                <span class="name"><b>Nome</b></span>
+                <span><b>Competências</b></span>
+            </div>
             <div *ngFor="let candidate of getCandidates()" class="candidates-border">
                 <mat-accordion>
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
-                            <mat-panel-title class="accordion-grid" *ngIf="candidate.competences[0]">
-                                <span>Nome: {{candidate.name}}</span>
-                                <span>Competências: {{candidate.competences[0].name}}</span>
+                            <mat-panel-title class="accordion-grid">
+                                <span>{{candidate.name}}</span>                                
+                                <div *ngFor="let competence of candidate.competences">
+                                    <span class="competences">{{competence.name.toLowerCase()}}</span>
+                                </div>
                             </mat-panel-title>                            
                         </mat-expansion-panel-header>
 

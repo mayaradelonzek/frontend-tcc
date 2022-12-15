@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import { icons } from '../helper/icons';
 import { CandidateService } from '../service/candidate.service';
 import { Candidate } from './model/candidate.model';
+import { Competence } from './model/competence.model';
 
 @Component({
   selector: 'app-candidate',
@@ -34,5 +35,5 @@ export class CandidateComponent implements OnInit {
 
   getCandidates() {
     return this.candidate;
-  }  
+  }
 }

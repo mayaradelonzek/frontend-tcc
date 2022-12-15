@@ -11,6 +11,8 @@ import {map, startWith} from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ThemePalette } from '@angular/material/core';
 import { Renderer2 } from '@angular/core';
+import { CustomValidators } from 'src/app/components/validator/CustomValidators';
+import { Competence } from '../model/competence.model';
 
 @Component({
   selector: 'app-candidate-create',
@@ -22,10 +24,10 @@ export class CandidateCreateComponent implements OnInit, AfterViewInit {
   accept: string = ".pdf";
   color: ThemePalette = 'accent';
   name = new FormControl('', [Validators.required]);
-  email = new FormControl('', [Validators.required]); // Validators.email
-  emailConfirmation = new FormControl('', [Validators.required]); //Validators.email
+  email = new FormControl('', [Validators.required, Validators.email]);
+  emailConfirmation = new FormControl('', [Validators.required, Validators.email]);
   cpf = new FormControl('', [Validators.required]);
-  linkedin = new FormControl('', [Validators.required]); // CustomValidators.validUrl
+  linkedin = new FormControl('', [Validators.required, CustomValidators.validUrl]);
   phone = new FormControl('', [Validators.required]);
   resumeControl = new FormControl('', [Validators.required]);
 
@@ -77,7 +79,7 @@ export class CandidateCreateComponent implements OnInit, AfterViewInit {
   }
 
   save() {
-    // if (!this.isFormValid()) return;
+    if (!this.isFormValid()) return;
 
     this.buildCandidate();
     this.candidateService.create(this.candidateModel, this.resume).subscribe(response => {
@@ -101,13 +103,34 @@ export class CandidateCreateComponent implements OnInit, AfterViewInit {
   }
 
   isFormValid(): boolean {
+
+    console.log("name")
+    console.log(this.name)
+
+    console.log("email")
+    console.log(this.email)
+
+    console.log("cpf")
+    console.log(this.cpf)
+
+    console.log("linkedin")
+    console.log(this.linkedin)
+
+    console.log("phone")
+    console.log(this.phone)
+
+    console.log(`
+    competences: ${this.competences.length > 0}\n
+    email-confirmation: ${this.isEmailConfirmationValid()}
+    `)
+
     return this.name.valid &&
       this.email.valid &&
       this.emailConfirmation.valid &&
       this.cpf.valid &&
       this.linkedin.valid &&
       this.phone.valid &&
-      // this.competences.valid &&
+      this.competences.length > 0 &&
       this.isEmailConfirmationValid();
   }
 

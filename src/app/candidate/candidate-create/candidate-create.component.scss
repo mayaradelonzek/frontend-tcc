@@ -18,9 +18,9 @@ $bg: #f2ecae;
 .body {
     background-color: $bg-color;
     margin: 0 15%;
-    padding-top: 5em;
+    padding-top: 10em;
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     flex-direction: column;
 }
 
@@ -44,12 +44,6 @@ $bg: #f2ecae;
     background-color: $green;
     border: 1px solid $light-brown;
     color: $bg-color !important;    
-}
-
-.title {    
-    font-size: 30px;
-    line-height: 38px;
-    text-align: center;    
 }
 
 .sec-title {

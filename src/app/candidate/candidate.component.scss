@@ -20,19 +20,48 @@ $bg: #f2ecae;
 
 .body {
     margin: 0 12%;
-    padding-top: 8em;
+    padding-top: 20em;
     display: flex;
 }
 
 .accordion-grid {
     display: grid;
-    grid-template-columns: 2fr 2.5fr 2.5fr 0.8fr 0.8fr;
+    grid-template-columns: 2fr 0.8fr 0.8fr 0.8fr;
     row-gap: 0.1rem;
     text-align: left;
     min-width: 100%;
+    line-height: 25px;
+}
+
+.title-grid {
+    display: grid;
+    grid-template-columns: 2fr 2.4fr;
+    row-gap: 0.1rem;
+    text-align: left;
+    min-width: 100%;    
+    background-color: white;
+    border: 1px solid $brown;
+    border-radius: 5px;
+    min-height: 48px;
+    align-items: center;
+    color: $main-color;
+    font-size: 16px;
 }
 
 .candidates-border {
     border-radius: 5px;
     border: 1px solid $brown;
+}
+
+.name {
+    margin-left: 22px;
+}
+
+.competences {
+    background-color: rgba(248, 72, 154, 0.993);
+    padding: 3px 10px;
+    border-bottom: solid 1px rgb(150, 78, 78) !important;
+    border-radius: 5px;
+    z-index: 10;
+    color: #fff;
 }
